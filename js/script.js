@@ -56,6 +56,7 @@ createApp({
                 }
             ],
             imgIndex: 0,
+            slidingLoop: undefined
         }
     },
 
@@ -76,10 +77,19 @@ createApp({
 
         selectedThumb(index) {
             this.imgIndex = index;
+        },
+
+        slidingSuspanded() {
+            clearInterval(this.slidingLoop)
+            slidingLoop = undefined
+        },
+
+        startSliding() {
+            this.slidingLoop = setInterval(this.nextSlide, 3000);
         }
     },
 
     mounted() {
-        console.log('sono collegato');
+        this.startSliding()
     }
 }).mount('#app')
