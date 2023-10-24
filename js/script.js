@@ -57,7 +57,7 @@ createApp({
 
         slidingSuspanded() {
             clearInterval(this.slidingLoop)
-            slidingLoop = undefined
+            this.slidingLoop = undefined
         },
 
         startSliding() {
