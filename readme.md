@@ -4,7 +4,7 @@
   - mi servo del V-for
 
 - devo dare la classe show solo ad un item
-  - classe show solo ha chi l'indice 
+  - classe show solo a chi l'indice 
 
 - Bonus:
 1- al click su una thumb, visualizzare in grande l'immagine corrispondente
