@@ -16,6 +16,11 @@
     width: 700px;
     height: 300px;
     position: relative;
+    display: none;
+}
+
+.item.show {
+    display: block;
 }
 
 .item img {
@@ -26,10 +31,12 @@
 
 .item .text {
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 0;
+    bottom: 0;
+    padding: 0 10px 5px 0;
     text-align: right;
     color: white;
+    backdrop-filter: blur(20px);
 }
 
 .thumbs {
