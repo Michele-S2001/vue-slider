@@ -18,12 +18,12 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <!-- Generazione delle slides -->
-                <div class="item" v-for="(slide, index) in slides" :class="imgIndex === index ? 'show' : ''" @mouseover="slidingSuspanded()" @mouseleave="startSliding()">
-                    <img :src="slide.image"/>
+                <div class="item" @mouseover="slidingSuspanded()" @mouseleave="startSliding()">
+                    <img :src="slides[imgIndex].image" :alt="slides[imgIndex].title"/>
                     <div class="text">
-                        <h3>{{ slide.title }}</h3>
+                        <h3>{{ slides[imgIndex].title }}</h3>
                         <p>
-                            {{ slide.text }}
+                            {{ slides[imgIndex].text }}
                         </p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
 
                     <!-- Generazione delle thumbnail -->
                     <div @click="selectedThumb(i)" class="thumb" :class="imgIndex === i ? 'active' : ''" v-for="(thumb, i) in slides">
-                        <img :src="thumb.image"/>
+                        <img :src="thumb.image" :alt="thumb.title"/>
                     </div>
                 </div>
 

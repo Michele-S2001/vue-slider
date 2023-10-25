@@ -32,22 +32,22 @@ createApp({
                 }
             ],
             imgIndex: 0,
-            slidingLoop: undefined
+            slidingID: null
         }
     },
 
     methods: {
         nextSlide() {
-            this.imgIndex++
+            this.imgIndex++;
             if(this.imgIndex === this.slides.length) {
                 this.imgIndex = 0;
             }
         },
 
         prevSlide() {
-            this.imgIndex--
+            this.imgIndex--;
             if(this.imgIndex < 0) {
-                this.imgIndex = this.slides.length - 1
+                this.imgIndex = this.slides.length - 1;
             }
         },
 
@@ -55,17 +55,18 @@ createApp({
             this.imgIndex = index;
         },
 
-        slidingSuspanded() {
-            clearInterval(this.slidingLoop)
-            this.slidingLoop = undefined
+        startSliding() {
+            this.slidingID = setInterval(this.nextSlide, 3000);
         },
 
-        startSliding() {
-            this.slidingLoop = setInterval(this.nextSlide, 3000);
+        slidingSuspanded() {
+            clearInterval(this.slidingID);
+            this.slidingID = null;
         }
+
     },
 
     mounted() {
-        this.startSliding()
+        this.startSliding();
     }
 }).mount('#app')
